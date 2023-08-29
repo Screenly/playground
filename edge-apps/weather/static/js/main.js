@@ -65,8 +65,17 @@ function initApp (data) {
    */
 
   const countriesUsingFahrenheit = ['US', 'BS', 'KY', 'LR', 'PW', 'FM', 'MH']
-  const celsiusToFahrenheit = (temp) => ((1.8 * temp) + 32)
-  const getTemp = (temp) => Math.round(tempScale === 'C' ? temp : celsiusToFahrenheit(temp))
+  const timeZonesUsingFahrenheit = countriesUsingFahrenheit.map(
+    country => {
+      let timezones = moment.tz.zonesForCountry(country)
+
+      if (country === "BS") {
+        timezones = timezones.filter(tz => tz !== 'America/Toronto')
+      }
+
+      return timezones
+    }
+  ).flat()
 
   const checkIfNight = (dt) => {
     const dateTime = moment.unix(dt).utcOffset(tz)
@@ -181,7 +190,7 @@ function initApp (data) {
   const updateCurrentWeather = (icon, desc, temp) => {
     updateAttribute('current-weather-icon', 'src', icons[icon])
     updateContent('current-weather-status', desc)
-    updateContent('current-temp', getTemp(temp))
+    updateContent('current-temp', Math.round(temp))
     updateContent('current-temp-scale', `\u00B0${tempScale}`)
   }
 
@@ -237,7 +246,7 @@ function initApp (data) {
         const dummyNode = document.querySelector('.dummy-node')
         const node = dummyNode.cloneNode(true)
         node.classList.remove('dummy-node')
-        node.querySelector('.item-temp').innerText = getTemp(temp)
+        node.querySelector('.item-temp').innerText = Math.round(temp)
         node.querySelector('.item-icon').setAttribute('src', icons[icon])
         node.querySelector('.item-time').innerText = index === 0 ? 'Current' : formatTime(dateTime)
 
@@ -253,7 +262,7 @@ function initApp (data) {
   const updateData = () => {
     getDataFromIndexedDB(db, (data) => {
       const { name, country, timezone } = data
-      tempScale = countriesUsingFahrenheit.includes(country) ? 'F' : 'C'
+      tempScale = timeZonesUsingFahrenheit.includes(tzlookup(lat, lng)) ? 'F' : 'C'
       updateLocation(name)
       tz = setTimeZone(timezone)
       initDateTime()
@@ -289,12 +298,14 @@ function initApp (data) {
 
   const fetchWeather = async () => {
     try {
+      const timezone = tzlookup(lat, lng)
+      const units = timeZonesUsingFahrenheit.includes(timezone) ? 'imperial' : 'metric'
       const endpointUrl = `https://api.openweathermap.org/data/2.5/forecast`
       const apiKey = screenly.settings.openweathermap_api_key
       const queryParams = stringifyQueryParams({
         lat: lat,
         lon: lng,
-        units: 'metric', // TODO: Make this dependent on the current location.
+        units,
         cnt: 10,
         appid: apiKey,
       })
@@ -323,4 +334,4 @@ function initApp (data) {
   init()
 }
 
-initApp()
+window.onload = initApp;

@@ -75,7 +75,35 @@
                 </div>
             </section>
         </div>
+
+        <script>
+            const disableAnalytics = screenly.settings.disable_analytics == "true";
+
+            if (disableAnalytics != "true") {
+                const sentryId = screenly.settings.sentry_id;
+                const gaApiKey = screenly.settings.ga_api_key;
+
+                const sentryScript = document.createElement('script');
+                sentryScript.src = `https://js.sentry-cdn.com/${sentryId}.min.js`;
+                sentryScript.crossOrigin = 'anonymous';
+                document.head.appendChild(sentryScript);
+
+                const gtagScript = document.createElement('script');
+                gtagScript.src = `https://www.googletagmanager.com/gtag/js?id=${gaApiKey}`;
+                gtagScript.async = true;
+                document.head.appendChild(gtagScript);
+
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+
+                gtag('js', new Date());
+                gtag('config', gaApiKey);
+            }
+        </script>
+
+        <script src="static/js/tz.min.js"></script>
         <script src="static/js/moment-with-locales.min.js"></script>
+        <script src="static/js/moment-timezone-with-data.min.js"></script>
         <script src="static/js/icons.js"></script>
         <script src="static/js/main.js"></script>
     </body>
