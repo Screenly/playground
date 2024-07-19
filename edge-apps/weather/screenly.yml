@@ -1,6 +1,6 @@
 ---
 description: Displays the current weather and time
-icon: 'https://playground.srly.io/edge-apps/weather/static/images/icon.svg'
+icon: 'https://playground.srly.io/edge-apps/weather/static/images/weather.svg'
 author: Screenly, Inc.
 entrypoint: index.html
 settings:

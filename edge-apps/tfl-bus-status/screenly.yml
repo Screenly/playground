@@ -7,7 +7,7 @@ description: |
   You can find the list of all bus stops here:
   https://playground.srly.io/edge-apps/helpers/tfl/bus-stop-lookup/
 
-icon: https://playground.srly.io/edge-apps/tfl-bus-status/static/images/icon.svg
+icon: https://playground.srly.io/edge-apps/tfl-bus-status/static/images/bus.svg
 author: Screenly, Inc.
 entrypoint: index.html
 settings:

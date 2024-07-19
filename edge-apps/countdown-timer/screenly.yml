@@ -1,7 +1,7 @@
 ---
 user_version: v1.0.0
 description: Screenly Countdown Edge App
-icon: https://playground.srly.io/edge-apps/countdown-timer/static/images/icon.svg
+icon: https://playground.srly.io/edge-apps/countdown-timer/static/images/countdown-timer.svg
 author: Screenly, Inc.
 entrypoint: index.html
 settings:

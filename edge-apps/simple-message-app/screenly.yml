@@ -2,7 +2,7 @@
 app_id:
 user_version: v1.0.0
 description: Screenly Simple Message App
-icon: https://playground.srly.io/edge-apps/simple-message-app/static/images/icon.svg
+icon: https://playground.srly.io/edge-apps/simple-message-app/static/images/simple-message.svg
 author: Screenly, Inc.
 entrypoint: index.html
 settings:

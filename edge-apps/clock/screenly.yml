@@ -1,7 +1,7 @@
 ---
 user_version: v1.0.0
 description: Screenly Clock Edge App
-icon: 'https://playground.srly.io/edge-apps/clock/static/images/icon.svg'
+icon: 'https://playground.srly.io/edge-apps/clock/static/images/clock.svg'
 author: Screenly, Inc.
 entrypoint: index.html
 settings:

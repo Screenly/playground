@@ -1,6 +1,6 @@
 ---
 description: Screenly iframe Edge App
-icon: 'https://playground.srly.io/edge-apps/iframe/static/images/icon.svg'
+icon: 'https://playground.srly.io/edge-apps/iframe/static/images/iframe.svg'
 author: Screenly, Inc.
 entrypoint: index.html
 settings:
