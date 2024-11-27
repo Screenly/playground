@@ -1,0 +1,34 @@
+---
+user_version: ''
+description: A sample QR code generator app
+icon: ''
+author: Screenly, Inc.
+homepage_url: ''
+entrypoint: index.html
+settings:
+  enable_utm:
+    type: string
+    default_value: 'false'
+    title: enable_utm
+    optional: true
+    help_text: |
+      Enabling it append UTM parameters as query strings to the URL before
+      converting it to a QR code.
+  header:
+    type: string
+    default_value: Your Voice, Our Future Help Us Grow With Your Insights!
+    title: header
+    optional: false
+    help_text: Specify a header to be displayed on the screen
+  subheader:
+    type: string
+    default_value: Your experience is important to us. Please take a moment to provide your valuable feedback.
+    title: header
+    optional: false
+    help_text: Specify a subheader to be displayed on the screen
+  url:
+    type: string
+    default_value: https://tracx.me/qckmka
+    title: url
+    optional: false
+    help_text: Specify a URL to be converted into a QR code

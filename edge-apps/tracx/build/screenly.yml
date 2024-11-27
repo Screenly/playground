@@ -1,0 +1,22 @@
+---
+user_version: ''
+description: A sample QR code generator app
+icon: ''
+author: Screenly, Inc.
+homepage_url: ''
+entrypoint: index.html
+settings:
+  enable_utm:
+    type: string
+    default_value: 'false'
+    title: enable_utm
+    optional: true
+    help_text: |
+      Enabling it append UTM parameters as query strings to the URL before
+      converting it to a QR code.
+  url:
+    type: string
+    default_value: https://www.screenly.io/
+    title: url
+    optional: false
+    help_text: Specify a URL to be converted into a QR code

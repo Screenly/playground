@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>QR Code Generator</title>
+  <script src="screenly.js?version=1"></script>
+  <link rel="stylesheet" href="static/main.css">
+</head>
+
+<body class="bg-[#00cd00] min-h-screen w-full relative">
+  <div class="absolute inset-8 bg-white grid md:grid-cols-2">
+    <div class="flex flex-col justify-center">
+      <div class="p-8 w-full text-center">
+        <span class="inline-block w-full max-w-sm">
+          <img src="resources/images/logo.svg" class="w-full" alt="">
+        </span>
+      </div>
+      <div class="px-2 -mt-8">
+        <img src="resources/images/banner.svg" class="w-full" />
+      </div>
+    </div>
+    <div class="w-full flex items-center justify-center relative overflow-hidden">
+      <div id="qr-code-container" class="flex shrink mt-16"></div>
+    </div>
+  </div>
+</body>
+<script src="static/bundle.js"></script>
+
+</html>
