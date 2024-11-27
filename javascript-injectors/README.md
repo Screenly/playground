@@ -228,9 +228,16 @@ $ screenly asset inject-js "$ASSET_ID" "$JAVASCRIPT_URL"
 * Download [zabbix-login-via-credentials.js](https://github.com/Screenly/Playground/tree/master/javascript-injectors/examples/zabbix-login-via-credentials.js) and modify it with your credentials.
 * Run `screenly asset inject-js "$ASSET_ID" /path/to/script.js` to add the JavaScript
 
-## Sign in to Dynatrace via credentials
+## Sign in to Dynatrace via credentials arcgis-logo.svg
 
 <img src="../images/dynatrace-logo.svg" alt="Dynatrace logo" width="150"/>
 
 * Download [dynatrace-login-via-credentials.js](https://github.com/Screenly/Playground/tree/master/javascript-injectors/examples/dynatrace-login-via-credentials.js) and modify it with your credentials.
+* Run `screenly asset inject-js "$ASSET_ID" /path/to/script.js` to add the JavaScript
+
+## Sign in to ArcGIS via credentials
+
+<img src="../images/arcgis-logo.svg" alt="ArcGIS logo" width="150"/>
+
+* Download [arcgis-signin-via-credentials.js](https://github.com/Screenly/Playground/tree/master/javascript-injectors/examples/arcgis-signin-via-credentials.js) and modify it with your credentials.
 * Run `screenly asset inject-js "$ASSET_ID" /path/to/script.js` to add the JavaScript
