@@ -59,6 +59,11 @@
             report.on("rendered", function () {
               screenly.signalReadyForRendering();
             });
+
+            report.on("error", function (event) {
+              console.error("Report error:" + JSON.stringify(event));
+            });
+
         }
 
     </script>
