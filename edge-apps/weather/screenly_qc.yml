@@ -18,7 +18,7 @@ settings:
     optional: false
     is_global: true
     help_text: |
-      Specify an API key so that you'll have access to all the necessary weather data.
+      Specify OpenWeatherMap API key.
   tag_manager_id:
     type: string
     default_value: GTM-P98SPZ9Z
@@ -34,3 +34,20 @@ settings:
     help_text: |
       Specify a comma-separated pair of coordinates (e.g., 37.8267,-122.4233).
       If not specified, the app will attempt to use the device's coordinates.
+  override_locale:
+    type: string
+    default_value: en
+    title: Override Locale
+    optional: true
+    help_text: Specify a supported locale value (e.g., en_US).
+  override_timezone:
+    type: string
+    default_value: ''
+    title: Override Timezone
+    optional: true
+    help_text: Specify a supported timezone value (e.g., Europe/London).
+  sentry_dsn:
+    type: secret
+    title: Sentry DSN
+    optional: true
+    help_text: Specify a Sentry DSN to enable error tracking.

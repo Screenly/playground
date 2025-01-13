@@ -1,0 +1,373 @@
+/* stylelint-disable media-feature-range-notation */
+
+/* Common Styles */
+
+/* Global Fonts */
+@font-face {
+  font-family: Aeonik;
+  src: url('../fonts/Aeonik-Regular.woff2') format('woff2'),
+    url('../fonts/Aeonik-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Typography */
+html {
+  font-size: 14px;
+}
+
+body {
+  font-family: Aeonik, sans-serif;
+  height: 100vh;
+}
+
+/* Colors (Theme) */
+:root {
+  --theme-color-primary: #972EFF;
+  --theme-color-secondary: #ADAFBE;
+  --theme-color-tertiary: #FFF;
+  --theme-color-background: #C9CDD0;
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+/* Components */
+
+.main-container {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  height: 100%;
+  padding: 2rem;
+  background-color: var(--theme-color-background);
+}
+
+
+.primary-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+  border-radius: 3rem;
+  gap: 2rem;
+  line-height: 1;
+  background-color: var(--theme-color-primary);
+  color: var(--theme-color-tertiary);
+}
+
+
+.primary-container {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  justify-content: space-between;
+}
+
+
+
+.secondary-container {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: space-between;
+}
+
+.row-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 2rem;
+  height: 50%;
+}
+
+
+.secondary-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  gap: 2rem;
+  border-radius: 3.481rem;
+  background-color: var(--theme-color-tertiary);
+}
+
+/* Media Query */
+
+@media (orientation: portrait) {
+  .main-container {
+    flex-direction: column;
+  }
+
+  .primary-card {
+    width: 100%;
+    height: 50%;
+  }
+
+  .secondary-container {
+    width: 100%;
+    height: 50%;
+  }
+}
+
+/* 480px 720px Clock Container need to fix */
+
+/* TODO: Fix the Clock Circle issue : When Scale to .5, circle change to oval */
+
+@media screen and (min-width: 480px) and (orientation: portrait) {
+  .main-container {
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .primary-container {
+    gap: 1rem;
+  }
+
+
+  .primary-card {
+    border-radius: 2rem;
+  }
+
+  .secondary-container {
+    gap: 1rem;
+  }
+
+  .row-container {
+    gap: 1rem;
+  }
+
+  .secondary-card {
+    border-radius: 2rem;
+  }
+
+}
+
+@media screen and (min-width: 720px) and (orientation: portrait) {
+  .main-container {
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .primary-card {
+    border-radius: 2rem;
+  }
+
+  .secondary-container {
+    gap: 1rem;
+  }
+
+  .row-container {
+    gap: 1rem;
+  }
+
+  .secondary-card {
+    border-radius: 2rem;
+  }
+
+}
+
+@media screen and (min-width: 800px) and (orientation: landscape) {
+  .main-container {
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+
+  .primary-container {
+    gap: 1.5rem;
+  }
+
+  .primary-card {
+    border-radius: 2rem;
+  }
+
+  .secondary-container {
+    gap: 1rem;
+  }
+
+  .row-container {
+    gap: 1rem;
+  }
+
+  .secondary-card {
+    border-radius: 2rem;
+  }
+
+}
+
+@media screen and (min-width: 1080px) and (orientation: portrait) {
+  .main-container {
+    gap: 3rem;
+    padding: 3rem;
+  }
+
+  .primary-container {
+    gap: 3rem;
+  }
+
+  .primary-card {
+    border-radius: 4rem;
+  }
+
+  .secondary-container {
+    gap: 3rem;
+  }
+
+  .row-container {
+    gap: 3rem;
+  }
+
+  .secondary-card {
+    border-radius: 4rem;
+  }
+
+}
+
+@media screen and (min-width: 1280px) and (orientation: landscape) {
+  .main-container {
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  .primary-container {
+    gap: 2rem;
+  }
+
+  .primary-card {
+    border-radius: 2rem;
+  }
+
+  .secondary-container {
+    gap: 2rem;
+  }
+
+  .row-container {
+    gap: 2rem;
+  }
+
+  .secondary-card {
+    border-radius: 2.5rem;
+  }
+
+}
+
+@media screen and (min-width: 1920px) and (orientation: landscape) {
+  .main-container {
+    gap: 2.5rem;
+    padding: 2.5rem;
+  }
+
+  .primary-container {
+    gap: 2.5rem;
+  }
+
+  .primary-card {
+    border-radius: 2.5rem;
+  }
+
+  .secondary-container {
+    gap: 2.5rem;
+  }
+
+  .row-container {
+    gap: 2.5rem;
+  }
+
+  .secondary-card {
+    border-radius: 2.5rem;
+  }
+}
+
+@media screen and (min-width: 2160px) and (orientation: portrait) {
+  .main-container {
+    gap: 5rem;
+    padding: 5rem;
+  }
+
+  .primary-container {
+    gap: 5rem;
+  }
+
+  .primary-card {
+    border-radius: 8rem;
+  }
+
+  .secondary-container {
+    gap: 5rem;
+  }
+
+  .row-container {
+    gap: 6rem;
+  }
+
+  .secondary-card {
+    border-radius: 8rem;
+  }
+
+}
+
+@media screen and (min-width: 3840px) and (orientation: landscape) {
+  .main-container {
+    gap: 5rem;
+    padding: 5rem;
+  }
+
+  .primary-container {
+    gap: 5rem;
+  }
+
+  .primary-card {
+    border-radius: 8rem;
+  }
+
+  .secondary-container {
+    gap: 5rem;
+  }
+
+  .row-container {
+    gap: 6rem;
+  }
+
+  .secondary-card {
+    border-radius: 8rem;
+  }
+}
+
+@media screen and (min-width: 4096px) and (orientation: landscape) {
+  .main-container {
+    gap: 5rem;
+    padding: 5rem;
+  }
+
+  .primary-container {
+    gap: 5rem;
+  }
+
+
+  .primary-card {
+    border-radius: 7rem;
+  }
+
+  .secondary-container {
+    gap: 5rem;
+  }
+
+  .row-container {
+    gap: 6rem;
+  }
+
+  .secondary-card {
+    border-radius: 7rem;
+  }
+}

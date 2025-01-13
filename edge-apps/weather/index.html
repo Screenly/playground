@@ -1,121 +1,84 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Screenly Weather App - Weather Forecast</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="static/styles/main.css" />
-        <link rel="stylesheet" href="static/styles/background.css" />
-    </head>
-    <body x-data="weather" :class="bgClass">
-        <script src="screenly.js?version=1"></script>
-        <script src="static/js/alpinejs-3.13.0.min.js" defer></script>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grid test</title>
+  <link rel="stylesheet" href="./static/styles/common.css">
+  <link rel="stylesheet" href="./static/styles/styles.css">
+</head>
+<body x-data="weather">
 
-        <!-- Google Tag Manager -->
-        <script>
-            window.onload = function() {
-                const {
-                    enable_analytics: enableAnalytics,
-                    tag_manager_id: tagManagerId,
-                } = screenly.settings;
+ <script src="static/js/alpinejs-3.13.0.min.js" defer></script>
 
-                if (enableAnalytics === 'true') {
-                    (function(w, d, s, l, i) {
-                        w[l] = w[l] || [];
-                        w[l].push({
-                            'gtm.start': new Date().getTime(),
-                            event: 'gtm.js'
-                        });
-                        var f = d.getElementsByTagName(s)[0],
-                            j = d.createElement(s),
-                            dl = l != 'dataLayer' ? '&l=' + l : '';
-                        j.async = true;
-                        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-                        f.parentNode.insertBefore(j, f);
-                    })(window, document, 'script', 'dataLayer', tagManagerId);
-                }
-            };
-        </script>
-        <!-- End Google Tag Manager -->
+<div  class="main-container main-container-grid">
 
-        <template x-if="isLoading && !error">
-            <div class="error">
-                <div class="group">
-                    <h2>Loading...</h2>
-                    <div class="loader"></div>
-                </div>
-            </div>
-        </template>
 
-        <template x-if="error">
-            <div class="error">
-                <div class="group">
-                    <h2 x-text="errorMessage"></h2>
-                    <div class="loader"></div>
-                </div>
-            </div>
-        </template>
+  <div class="primary-card main-weather-card">
+    <div class="temperature-card">
+      <div class="temperature-text" id="current-temp">
+        <span class="temperature-text-number" x-text="currentTemp"></span>
+      </div>
+      <div class="temperature-unit" id="current-temp-scale">
+        <span class="temperature-unit-text" x-text="currentFormattedTempScale"></span>
+      </div>
+    </div>
+  </div>
 
-        <template x-if="!error">
-            <div class="content">
-                <section class="header">
-                    <div class="location">
-                        <span class="location-item">
-                            <img src="static/images/icons/map-pin.svg" alt="map pin icon">
-                            <span id="city" x-text="city"></span>
-                        </span>
+  <div class= "time-date-card">
+    <div class="secondary-card time-card">
+    <div class="time-card" id="time">
+       <div class="time-text-container">
+        <span class="time-text-hour"></span>
+        <span class="time-text-separator">:</span>
+        <span class="time-text-minutes"></span>
+       </div>
+       <div class="time-ampm-container">
+        <span class="time-ampm"></span>
+        </div>
+    </div>
+  </div>
+    <div class="date-card" id="date">
+      <span class="date-text"></span>
+      <span class="date-number"></span>
+    </div>
+  </div>
 
-                        <span class="location-item">
-                            <img src="static/images/icons/clock.svg" alt="clock icon">
-                            <span id="time" x-text="currentTime"></span>
-                        </span>
 
-                        <span class="location-item">
-                            <img src="static/images/icons/calendar.svg" alt="calendar icon">
-                            <span id="date" x-text="currentDate"></span>
-                        </span>
-                    </div>
-                </section>
-                <section class="footer">
-                    <div class="current-weather">
-                    <div class="weather-condition">
-                        <img
-                            id="current-weather-icon"
-                            alt="weather icon"
-                            :src="currentWeatherIcon"
-                        >
-                        <span
-                            id="current-weather-status"
-                            x-text="currentWeatherStatus"
-                        ></span>
-                    </div>
-                    <div class="temperature">
-                        <span
-                            id="current-temp"
-                            x-text="currentTemp"
-                        ></span>
-                        <span
-                            id="current-temp-scale"
-                            x-text="currentFormattedTempScale"
-                        ></span>
-                    </div>
-                    </div>
+  <div class="secondary-card weather-card">
+    <div class="weather-card-content" id="weather-item-list">
+      <template x-for="item in forecastedItems" :key="item.id">
+        <div class="weather-card-content-item">
+          <div class="weather-card-content-item-temperature-text">
+            <span class="weather-card-temperature-text" x-text="item.temp"></span>
+            <span class="weather-card-temperature-degree-sign">&deg;</span>
+          </div>
+          <div class="weather-card-content-item-temperature-icon">
+            <img alt="Weather Icon" class="weather-card-weather-icon" :src="item.icon" >
+          </div>
+          <div class="weather-card-content-item-temperature-time">
+            <span class="weather-card-content-item-temperature-time" x-text="item.time"></span>
+          </div>
+        </div>
+      </template>
+    </div>
+  </div>
 
-                    <div id="weather-item-list">
-                        <template x-for="item in forecastedItems" :key="item.id">
-                            <div class="weather-item">
-                                <span class="item-temp-degree">
-                                    <span class="item-temp" x-text="item.temp"></span>&deg;
-                                </span>
-                                <img class="item-icon" alt="clock icon" :src="item.icon">
-                                <span class="item-time" x-text="item.time"></span>
-                            </div>
-                        </template>
-                    </div>
-                </section>
-            </div>
-        </template>
-        <script src="static/js/moment-with-locales.min.js"></script>
-        <script src="static/js/icons.js"></script>
-        <script src="static/js/main.js"></script>
-    </body>
+
+  <div class="secondary-card info-card">
+    <img id="brand-logo" src="static/images/screenly.svg" class="brand-logo" alt="Brand Logo" />
+    <span class="info-text">Powered by Screenly</span>
+  </div>
+
+</div>
+
+<script src="screenly.js?version=1"></script>
+<script src="static/js/country-locale-map.1.18.5.min.js"></script>
+<script src="static/js/moment-with-locales.min.js"></script>
+<script src="static/js/moment-timezone-with-data.min.js"></script>
+<script src="static/js/offline-geocode-city-1.0.2.min.js"></script>
+<script src="static/js/tz.min.js"></script>
+<script src="static/js/icons.js"></script>
+<script src="static/js/main.js"></script>
+</body>
 </html>
